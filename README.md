@@ -19,27 +19,7 @@
 
 ---
 
-## 🧐 The Problem Statement
-Most typing websites are built for desktop viewports. When accessed on a mobile device in **Landscape Mode**:
-1.  **Screen Real Estate:** Browser address bars and keyboards consume 60% of the screen.
-2.  **Focus Loss:** Touching the screen often triggers the virtual keyboard, disrupting the physical keyboard flow.
-3.  **Audio Latency:** Standard web audio implementations cause a delay (lag) on mobile browsers, breaking the typing rhythm.
 
-## 💡 The Solution (Engineering Approach)
-**TypingMaster OTG** solves these issues using a mobile-first, performance-centric approach:
-
-### 1. Adaptive Viewport Engine
-- Utilizes **CSS Container Queries** and `dvh` (Dynamic Viewport Height) units to ensure the UI fits perfectly without scrolling, regardless of the browser's UI bars.
-- Implements a **Smart Scroll Algorithm** in JS that keeps the active line centered dynamically.
-
-### 2. Zero-Latency Audio System
-- Replaces standard `new Audio().play()` with a **DOM Node Cloning Strategy**.
-- **Technique:** `audioNode.cloneNode(true).play()` allows overlapping sounds during high-speed typing bursts (100+ WPM) without audio cutting or lagging.
-
-### 3. Focus-Lock Mechanism
-- Custom Event Listeners (`blur`, `keydown`) ensure the input field automatically re-claims focus if the user accidentally touches the UI, preventing the virtual keyboard from popping up.
-
----
 
 ## 🛠️ Tech Stack & Tools
 
